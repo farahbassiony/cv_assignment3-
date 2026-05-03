@@ -76,6 +76,7 @@ if __name__ == "__main__":
 
         imgL = cv2.imread(left_path, 0)
         imgR = cv2.imread(right_path, 0)
+
         count=1
         # for w in [1,5,9]:
         #     disp = disparitySAD(imgL, imgR, w, max_disparity=64)
@@ -91,9 +92,9 @@ if __name__ == "__main__":
             disp = disparitySSD(imgL, imgR, w, max_disparity=64)
 
             disp_vis = (disp / disp.max() * 255).astype(np.uint8)
-            # cv2.imshow(f"Disparity {count}pair{pair}", disp_vis)
+            cv2.imshow(f"Disparity {count}pair{pair}", disp_vis)
             cv2.imwrite(f"SSD{count}pair{pair}.png", disp_vis)
-            # cv2.waitKey(0)
-            # cv2.destroyAllWindows()
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
             count += 1  
         pair+=1

@@ -58,8 +58,8 @@ def disparityDP(L, R, window_size=5, max_disparity=64, smoothness_penalty=1, occ
     return disparity_map
 
 if __name__ == "__main__":
-    L = cv2.imread(r'stereo_materials\l1.png', cv2.IMREAD_GRAYSCALE)
-    R = cv2.imread(r'stereo_materials\r1.png', cv2.IMREAD_GRAYSCALE)
+    L = cv2.imread(r'materials\l1.png', cv2.IMREAD_GRAYSCALE)
+    R = cv2.imread(r'materials\r1.png', cv2.IMREAD_GRAYSCALE)
     disparity_map = disparityDP(L, R, window_size=5, max_disparity=64, smoothness_penalty=5, occlusion_penalty=2)
     vis_map = cv2.normalize(disparity_map, None, 0, 255, cv2.NORM_MINMAX)
     color_map = cv2.applyColorMap(vis_map, cv2.COLORMAP_JET)
